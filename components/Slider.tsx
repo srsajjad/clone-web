@@ -25,13 +25,6 @@ export const Slider = ({ data }: { data: CourseData }) => {
     setIsPlaying(false);
   };
 
-  const getYouTubeVideoId = (url: string) => {
-    const regExp =
-      /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
-    const match = url.match(regExp);
-    return match && match[2].length === 11 ? match[2] : null;
-  };
-
   const currentSlide = SLIDES[currentIndex];
 
   return (
@@ -39,7 +32,7 @@ export const Slider = ({ data }: { data: CourseData }) => {
       <div className="relative aspect-video bg-black rounded-lg overflow-hidden">
         {/* Main Content */}
 
-        {currentSlide.resource_value.includes("images") ? (
+        {currentSlide.resource_type === "image" ? (
           <img
             src={currentSlide.resource_value}
             alt="Slide"
@@ -49,9 +42,7 @@ export const Slider = ({ data }: { data: CourseData }) => {
           <iframe
             width="100%"
             height="100%"
-            src={`https://www.youtube.com/embed/${getYouTubeVideoId(
-              currentSlide.resource_value
-            )}?autoplay=1`}
+            src={`https://www.youtube.com/embed/${currentSlide.resource_value}?autoplay=1`}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           ></iframe>
@@ -61,7 +52,7 @@ export const Slider = ({ data }: { data: CourseData }) => {
             onClick={() => setIsPlaying(true)}
           >
             <img
-              src={currentSlide.resource_value}
+              src={currentSlide.thumbnail_url}
               alt="Video Thumbnail"
               className="w-full h-full object-cover"
             />
@@ -129,7 +120,6 @@ export const Slider = ({ data }: { data: CourseData }) => {
         </button>
       </div>
 
-      {/* Thumbnails */}
       <div className="flex gap-2 mt-2">
         {SLIDES.map((slide, index) => (
           <div
@@ -142,12 +132,12 @@ export const Slider = ({ data }: { data: CourseData }) => {
             onClick={() => handleThumbnailClick(index)}
           >
             <img
-              src={slide.resource_value}
+              src={slide.thumbnail_url || slide.resource_value}
               alt={`Thumbnail ${index + 1}`}
               className="w-[100px] h-[56px] object-cover rounded-lg"
             />
 
-            {!slide.resource_value.includes("images") && (
+            {slide.resource_type === "video" && (
               <div className="absolute inset-0 flex items-center justify-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
