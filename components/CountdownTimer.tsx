@@ -46,7 +46,9 @@ export const CountdownTimer = () => {
 
   return (
     <div className="flex flex-col">
-      <p className="text-white text-sm mb-2">৯ম ব্যাচের ভর্তি শেষ হবে:</p>
+      <p className="text-gray-400 font-semibold text-sm mb-3 text-[16px]">
+        ৯ম ব্যাচের ভর্তি শেষ হবে:
+      </p>
       <div className="flex gap-4">
         {[
           { value: timeLeft.days, label: "Days" },
@@ -55,10 +57,12 @@ export const CountdownTimer = () => {
           { value: timeLeft.seconds, label: "Seconds" },
         ].map((item, index) => (
           <div key={index} className="flex flex-col items-center">
-            <div className="bg-[#1A1A1A] text-white px-3 py-2 rounded-md text-xl font-bold min-w-[60px] text-center">
+            <div className="flex items-center justify-center text-2xl md:text-4xl rounded-[14px] border-[3px] border-[rgb(74,74,74)] bg-[linear-gradient(158deg,rgb(0,0,0)10.11%,rgba(27,27,27,0.79)39.39%,rgb(35,35,35)95.29%)] h-[70px] w-[65px] text-white font-bold">
               {item.value}
             </div>
-            <span className="text-gray-400 text-sm mt-1">{item.label}</span>
+            <span className="mt-2 text-sm text-center text-gray-300 font-semibold">
+              {item.label}
+            </span>
           </div>
         ))}
       </div>
