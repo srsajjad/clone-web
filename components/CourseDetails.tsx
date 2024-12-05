@@ -11,7 +11,7 @@ export const CourseDetails = ({
   const { title, description } = data;
 
   return (
-    <div className="order-1 flex flex-col justify-center flex-1 md:order-1 md:max-w-[calc(100%_-_348px)] lg:max-w-[calc(100%_-_448px)]">
+    <div className="order-2 md:order-1 flex flex-col justify-center flex-1">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={data.media[0].resource_value}
@@ -19,7 +19,7 @@ export const CourseDetails = ({
         className="w-[105px] h-[40px] mb-2"
       />
 
-      <h1 className="text-white mb-2 text-[21px] font-semibold  md:text-4xl">
+      <h1 className="text-white mb-2 text-[21px] font-semibold md:text-4xl">
         {title}
       </h1>
 
