@@ -1,5 +1,5 @@
 import { CourseData } from "@/interface/type";
-import { VarinantChecklist } from "./VariantChecklist";
+import { VariantChecklist } from "./VatiantChecklist";
 
 export const CourseDetails = ({
   data,
@@ -30,7 +30,7 @@ export const CourseDetails = ({
         dangerouslySetInnerHTML={{ __html: description }}
       />
 
-      <VarinantChecklist lang={lang} />
+      <VariantChecklist lang={lang} />
     </div>
   );
 };

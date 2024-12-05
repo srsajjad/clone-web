@@ -1,7 +1,5 @@
 import { CourseData, VariantData } from "@/interface/type";
-
-// typically taken from env variable
-const baseUrl = "https://api.10minuteschool.com";
+import { baseUrl } from "@/utils/baseUrl";
 
 export async function getData({ lang }: { lang: string }) {
   const url =
