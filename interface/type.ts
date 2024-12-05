@@ -1,4 +1,4 @@
-export interface Root {
+export interface CourseData {
   slug: string;
   id: number;
   title: string;
@@ -8,7 +8,7 @@ export interface Root {
   modality: string;
   old_info: OldInfo;
   start_at: string;
-  media: Medum[];
+  media: Media[];
   checklist: Checklist[];
   seo: any[];
   cta_text: CtaText;
@@ -22,7 +22,7 @@ export interface OldInfo {
   program_id: number;
 }
 
-export interface Medum {
+export interface Media {
   name: string;
   resource_type: string;
   resource_value: string;
@@ -93,4 +93,75 @@ export interface Cta {
   clicked_url: string;
   color: string;
   text: string;
+}
+
+export interface VariantData {
+  items: Item[];
+  product: Product;
+  is_enrolled: boolean;
+}
+
+export interface Item {
+  id: string;
+  name: string;
+  price: number;
+  discount_type: string;
+  discount_value: number;
+  order_idx: number;
+  max_user_purchase_limit: number;
+  max_order_quantity: number;
+  plan: Plan;
+  discount_amount: number;
+  final_price: number;
+  is_enrolled: boolean;
+  identification_id: string;
+  identification_type: string;
+  total_enrolment: number;
+  is_enable_inventory: boolean;
+  available_stock: number;
+  meta: Meta[];
+}
+
+export interface Plan {
+  avail_grace_period: number;
+  content_access_type: string;
+  content_access_value: number;
+  content_available_end_at: string;
+  content_available_start_at: string;
+  grace_period: number;
+  id: number;
+  name: string;
+  payment_end_at: string;
+  payment_start_at: string;
+  secondary_name: string;
+  status: string;
+  upgrade_warning_days: any;
+}
+
+export interface Meta {
+  key: string;
+  values: MetaValue[];
+}
+
+export interface MetaValue {
+  icon?: string;
+  id: string;
+  is_product_checklist?: boolean;
+  meta_key?: string;
+  meta_value?: string;
+  background_color?: string;
+  background_img?: string;
+  checklist_text_color?: string;
+  end_at?: string;
+  start_at?: string;
+  template?: string;
+  text?: string;
+}
+
+export interface Product {
+  old_crm_id: number;
+  slug: string;
+  id: string;
+  title: string;
+  is_cohort_based_course: boolean;
 }

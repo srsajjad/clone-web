@@ -1,28 +1,35 @@
-import { Root } from "@/interface/type";
+import { getData } from "./data";
+import { CourseOverview } from "@/components/CourseOverview";
+import { Metadata } from "next";
 
-async function getData() {
-  const res = await fetch(
-    "https://api.10minuteschool.com/discovery-service/api/v1/products/ielts-live-batch"
-  );
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | undefined };
+}): Promise<Metadata> {
+  const lang = (await searchParams)?.lang || "";
+  const data = await getData({ lang });
 
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  const dataResponse = await res.json();
-  const data: Root = await dataResponse.data;
-
-  return data;
+  return {
+    title: data.title,
+    description: data.description,
+    openGraph: {
+      images: [],
+    },
+  };
 }
 
-export default async function Home() {
-  const data = await getData();
-
-  console.log(data);
+export default async function Home({
+  searchParams,
+}: {
+  searchParams?: { [key: string]: string | undefined };
+}) {
+  const lang = (await searchParams)?.lang || "";
+  const data = await getData({ lang });
 
   return (
     <>
-      <section>Number of sections: {data.sections.length}</section>
+      <CourseOverview data={data} lang={lang} />
     </>
   );
 }
