@@ -124,17 +124,17 @@ export const Slider = ({ data }: { data: CourseData }) => {
         {SLIDES.map((slide, index) => (
           <div
             key={index}
-            className={`relative cursor-pointer ${
+            className={`relative cursor-pointer box-border overflow-hidden ${
               currentIndex === index
-                ? "border-2 border-[#1CAB55] rounded-[.65rem]"
-                : ""
+                ? "border-2 border-[#1CAB55] rounded-[4px]"
+                : "border-2 border-transparent rounded-[4px]"
             }`}
             onClick={() => handleThumbnailClick(index)}
           >
             <img
               src={slide.thumbnail_url || slide.resource_value}
               alt={`Thumbnail ${index + 1}`}
-              className="w-[100px] h-[56px] object-cover rounded-lg"
+              className="w-[60px] h-[33px] object-cover"
             />
 
             {slide.resource_type === "video" && (
