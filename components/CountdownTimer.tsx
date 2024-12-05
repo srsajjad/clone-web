@@ -1,5 +1,6 @@
 "use client";
 
+import { VariantData } from "@/interface/type";
 import { useEffect, useState } from "react";
 
 interface TimeLeft {
@@ -9,7 +10,11 @@ interface TimeLeft {
   seconds: number;
 }
 
-export const CountdownTimer = () => {
+export const CountdownTimer = ({
+  variantData,
+}: {
+  variantData: VariantData;
+}) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
     hours: 0,
@@ -18,9 +23,10 @@ export const CountdownTimer = () => {
   });
 
   useEffect(() => {
-    // Set target date to 30 days from now (you can change this later)
-    const targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 30);
+    const targetDate = new Date(
+      variantData.items[0].meta.find((each) => each.key === "timer")?.values[0]
+        .end_at || new Date()
+    );
 
     const timer = setInterval(() => {
       const now = new Date().getTime();
@@ -42,12 +48,15 @@ export const CountdownTimer = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [variantData]);
+
+  const label = variantData.items[0].meta.find((each) => each.key === "timer")
+    ?.values[0].text;
 
   return (
     <div className="flex flex-col">
       <p className="text-gray-400 font-semibold text-sm mb-3 text-[16px]">
-        ৯ম ব্যাচের ভর্তি শেষ হবে:
+        {label}
       </p>
       <div className="flex gap-4">
         {[

@@ -2,7 +2,6 @@ import { getVariantData } from "@/app/data";
 import { Suspense } from "react";
 import ErrorBoundary from "./ErrorBoundary";
 import { VariantWithData } from "./VariantWithData";
-import { CountdownTimer } from "./CountdownTimer";
 
 export const VarinantChecklist = ({ lang }: { lang: string }) => {
   const variantPromise = getVariantData({ lang });
@@ -17,8 +16,6 @@ export const VarinantChecklist = ({ lang }: { lang: string }) => {
         }
       >
         <VariantWithData vatiantPromise={variantPromise} />
-
-        <CountdownTimer />
       </Suspense>
     </ErrorBoundary>
   );
