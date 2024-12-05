@@ -19,3 +19,13 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.thumb-wrap:before {
+  background: rgba(0, 0, 0, 0.4);
+  content: "";
+  height: 102%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}

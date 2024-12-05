@@ -48,7 +48,7 @@ export const Slider = ({ data }: { data: CourseData }) => {
           ></iframe>
         ) : (
           <div
-            className="relative w-full h-full cursor-pointer"
+            className="relative w-full h-full cursor-pointer thumb-wrap"
             onClick={() => setIsPlaying(true)}
           >
             <img
@@ -83,7 +83,7 @@ export const Slider = ({ data }: { data: CourseData }) => {
 
         {/* Navigation Arrows */}
         <button
-          className="absolute left-4 top-1/2 -translate-y-1/2 p-2 hover:opacity-75 transition-opacity"
+          className="absolute left-2 top-1/2 -translate-y-1/2 p-2 hover:opacity-75 transition-opacity"
           onClick={handlePrevious}
         >
           <svg
@@ -101,7 +101,7 @@ export const Slider = ({ data }: { data: CourseData }) => {
           </svg>
         </button>
         <button
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-2 hover:opacity-75 transition-opacity"
+          className="absolute right-2 top-1/2 -translate-y-1/2 p-2 hover:opacity-75 transition-opacity"
           onClick={handleNext}
         >
           <svg
@@ -126,7 +126,7 @@ export const Slider = ({ data }: { data: CourseData }) => {
             key={index}
             className={`relative cursor-pointer ${
               currentIndex === index
-                ? "border-2 border-[#1CAB55] rounded-lg"
+                ? "border-2 border-[#1CAB55] rounded-[.65rem]"
                 : ""
             }`}
             onClick={() => handleThumbnailClick(index)}
