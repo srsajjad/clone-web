@@ -40,7 +40,7 @@ export const OfferMobile = ({ lang }: { lang: string }) => {
 
   return (
     <>
-      <div className="pb-6 relative">
+      <div className="pb-2 relative">
         <div className="flex items-center gap-2 flex-wrap">
           <div className="inline-block text-2xl font-semibold">
             ৳{finalPriceAfterDiscount}
