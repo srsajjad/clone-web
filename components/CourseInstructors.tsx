@@ -18,7 +18,7 @@ export const CourseInstructors = ({
 
   return (
     <div className="py-4">
-      <h2 className="mb-4 text-xl font-semibold md:text-2xl">{sectionName}</h2>
+      <h2 className="mb-4 text-xl font-bold md:text-2xl">{sectionName}</h2>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 p-4 md:p-6 rounded-lg border border-gray-200 relative">
         {visibleInstructors.map((instructor, index) => (

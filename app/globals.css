@@ -16,6 +16,27 @@ body {
   width: 100%;
 }
 
+.routine-table {
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.routine-table span {
+  color: #111827 !important;
+}
+
+.routine-table table {
+  min-width: 500px;
+  width: 100%;
+}
+
+.routine-table table tr > td,
+.routine-table table tr > th {
+  border-color: #dbe1eb !important;
+  border-style: solid;
+  border-width: 1px;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

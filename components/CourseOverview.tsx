@@ -5,6 +5,7 @@ import { Offer } from "./Offer";
 import { ProductCheckList } from "./ProductCheckList";
 import { OfferMobileWrapper } from "./OfferMobileWrapper";
 import { CourseInstructors } from "./CourseInstructors";
+import { ClassRoutine } from "./ClassRoutine";
 
 export const CourseOverview = ({
   data,
@@ -19,8 +20,8 @@ export const CourseOverview = ({
     <>
       <div
         className="w-full min-h-[900px] md:min-h-[300px] bg-cover bg-center 
-    bg-[url('https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg')]
-     text-[#111827] font-sans border-0 border-solid border-[#dbe1eb] box-border pt-[34px] md:pt-[72px]"
+                  bg-[url('https://cdn.10minuteschool.com/images/ui_%281%29_1716445506383.jpeg')]
+                  text-[#111827] font-sans border-0 border-solid border-[#dbe1eb] box-border pt-[34px] md:pt-[72px]"
       >
         <div className="w-full flex flex-col gap-4 md:flex-row md:gap-12 container mx-auto p-4 py-12 md:px-12 md:py-8 relative">
           <div className="md:hidden">
@@ -33,7 +34,7 @@ export const CourseOverview = ({
 
           <div
             className="hidden md:block order-1 md:order-2 w-full md:w-[640px] shrink-0 bg-white p-1 rounded-md md:max-w-[330px] 
-         lg:max-w-[400px] md:absolute md:right-[-20] lg:right-0  md:top-8 border"
+                  lg:max-w-[400px] md:absolute md:right-[-20] lg:right-0  md:top-8 border"
           >
             <Slider data={data} />
 
@@ -64,6 +65,16 @@ export const CourseOverview = ({
                   key={section.name}
                   instructors={section.values}
                   sectionName={section.name}
+                />
+              );
+            }
+
+            if (section.type === "routine") {
+              return (
+                <ClassRoutine
+                  key={section.name}
+                  html={section.values[0].html as string}
+                  downloadLink={section.values[0].download_link as string}
                 />
               );
             }
