@@ -10,7 +10,7 @@ export const ProductCheckList = ({
   const checkList = data.checklist;
 
   return (
-    <div className="bg-white rounded-lg p-6">
+    <div className="rounded-lg py-6 pb-8">
       <h2 className="text-xl font-semibold mb-4">
         {lang === "en" ? "What's Included" : "এই কোর্সে যা থাকছে"}
       </h2>

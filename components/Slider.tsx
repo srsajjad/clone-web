@@ -120,49 +120,51 @@ export const Slider = ({ data }: { data: CourseData }) => {
         </button>
       </div>
 
-      <div className="flex gap-2 mt-2">
-        {SLIDES.map((slide, index) => (
-          <div
-            key={index}
-            className={`relative cursor-pointer box-border overflow-hidden ${
-              currentIndex === index
-                ? "border-2 border-[#1CAB55] rounded-[4px]"
-                : "border-2 border-transparent rounded-[4px]"
-            }`}
-            onClick={() => handleThumbnailClick(index)}
-          >
-            <img
-              src={slide.thumbnail_url || slide.resource_value}
-              alt={`Thumbnail ${index + 1}`}
-              className="w-[60px] h-[33px] object-cover"
-            />
+      <div className="px-2 py-2">
+        <div className="flex gap-2 mt-2">
+          {SLIDES.map((slide, index) => (
+            <div
+              key={index}
+              className={`relative cursor-pointer box-border overflow-hidden ${
+                currentIndex === index
+                  ? "border-2 border-[#1CAB55] rounded-[4px]"
+                  : "border-2 border-transparent rounded-[4px]"
+              }`}
+              onClick={() => handleThumbnailClick(index)}
+            >
+              <img
+                src={slide.thumbnail_url || slide.resource_value}
+                alt={`Thumbnail ${index + 1}`}
+                className="w-[60px] h-[33px] object-cover"
+              />
 
-            {slide.resource_type === "video" && (
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  fill="none"
-                  viewBox="0 0 56 56"
-                >
-                  <circle
-                    cx="28"
-                    cy="28"
-                    r="28"
-                    fill="#fff"
-                    fillOpacity="0.5"
-                  ></circle>
-                  <circle cx="27.999" cy="28" r="25.415" fill="#fff"></circle>
-                  <path
-                    fill="#1CAB55"
-                    d="M37.492 26.268c1.334.77 1.334 2.694 0 3.464l-12.738 7.355c-1.334.77-3-.193-3-1.732v-14.71c0-1.539 1.666-2.501 3-1.732l12.738 7.355z"
-                  ></path>
-                </svg>
-              </div>
-            )}
-          </div>
-        ))}
+              {slide.resource_type === "video" && (
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 56 56"
+                  >
+                    <circle
+                      cx="28"
+                      cy="28"
+                      r="28"
+                      fill="#fff"
+                      fillOpacity="0.5"
+                    ></circle>
+                    <circle cx="27.999" cy="28" r="25.415" fill="#fff"></circle>
+                    <path
+                      fill="#1CAB55"
+                      d="M37.492 26.268c1.334.77 1.334 2.694 0 3.464l-12.738 7.355c-1.334.77-3-.193-3-1.732v-14.71c0-1.539 1.666-2.501 3-1.732l12.738 7.355z"
+                    ></path>
+                  </svg>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

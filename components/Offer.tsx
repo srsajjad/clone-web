@@ -39,9 +39,9 @@ export const Offer = ({ lang }: { lang: string }) => {
   ).format(new Date(end_at));
 
   return (
-    <div className="mt-6">
+    <div className="py-4">
       <div className="flex items-center gap-2 flex-wrap">
-        <div className="inline-block text-2xl font-semibold text-white">
+        <div className="inline-block text-2xl font-semibold">
           ৳{finalPriceAfterDiscount}
         </div>
 
@@ -63,7 +63,7 @@ export const Offer = ({ lang }: { lang: string }) => {
       <div className="text-gray-400 mt-1 mb-4 font-semibold">{label}</div>
 
       <button
-        className="w-full whitespace-nowrap text-center text-white bg-[rgb(28,171,85)] py-3 px-4 rounded-md text-lg font-semibold 
+        className="w-full whitespace-nowrap text-center text-white bg-[rgb(28,171,85)] py-1 px-4 rounded-md text-lg font-semibold 
         border border-[#158F44] border-b-[#116b34] border-b-4
         transition-colors duration-150 ease-in-out 
         hover:bg-[#158F44] 
