@@ -33,7 +33,7 @@ export const CourseOverview = ({
 
           <div
             className="hidden md:block order-1 md:order-2 w-full md:w-[640px] shrink-0 bg-white p-1 rounded-md md:max-w-[330px] 
-         lg:max-w-[400px] md:absolute md:right-0 md:top-8 border"
+         lg:max-w-[400px] md:absolute md:right-[-20] lg:right-0  md:top-8 border"
           >
             <Slider data={data} />
 
@@ -55,8 +55,8 @@ export const CourseOverview = ({
         <OfferMobileWrapper lang={lang} />
       </div>
 
-      <div className="flex justify-between">
-        <div className="w-full md:w-[50%] flex flex-col">
+      <div className="flex w-full gap-4 container mx-auto p-4 md:px-12 pb-[200px] md:pb-8">
+        <div className="w-full md:w-[60%] flex flex-col">
           {sections.map((section) => {
             if (section.type === "instructors") {
               return (
@@ -71,7 +71,7 @@ export const CourseOverview = ({
             return null;
           })}
         </div>
-        <div className="hidden md:block w-[50%]"></div>
+        <div className="hidden md:block w-[40%]"></div>
       </div>
     </>
   );
