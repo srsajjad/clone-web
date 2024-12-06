@@ -60,13 +60,19 @@ export const Offer = ({ lang }: { lang: string }) => {
         </div>
       </div>
 
-      <div className="text-gray-400 mt-1 mb-4">ব্যাচ {label}</div>
+      <div className="text-gray-400 mt-1 mb-4 font-semibold">{label}</div>
 
-      <button className="w-full whitespace-nowrap text-center text-white bg-[rgb(28,171,85)] border border-black/30 py-3 px-4 rounded-md transition-colors duration-200 text-lg font-semibold hover:bg-[#158F44]">
+      <button
+        className="w-full whitespace-nowrap text-center text-white bg-[rgb(28,171,85)] py-3 px-4 rounded-md text-lg font-semibold 
+        border border-[#158F44] border-b-[#116b34] border-b-4
+        transition-colors duration-150 ease-in-out 
+        hover:bg-[#158F44] 
+        select-none"
+      >
         {lang === "en" ? "Enroll" : "কোর্সটি কিনুন"}
       </button>
 
-      <div className="text-[#FF6B6B] text-sm mt-2">
+      <div className="text-[#FF6B6B] text-sm font-semibold mt-2">
         {endLabel} {formattedDate}
       </div>
     </div>
