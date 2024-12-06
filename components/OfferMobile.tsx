@@ -11,9 +11,10 @@ export const OfferMobile = ({
   insideDrawer?: boolean;
 }) => {
   const { variantData, isLoading } = useLoadVariantData(lang);
-  const [DrawerTimer, setDrawerTimer] = useState<React.ComponentType | null>(
-    null
-  );
+  const [DrawerTimer, setDrawerTimer] = useState<React.ComponentType<{
+    endLabel: string;
+    end_at: string;
+  }> | null>(null);
 
   useEffect(() => {
     if (insideDrawer) {
