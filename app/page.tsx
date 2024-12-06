@@ -1,13 +1,12 @@
 import { getData } from "./data";
 import { CourseOverview } from "@/components/CourseOverview";
-import { Metadata } from "next";
 
 export async function generateMetadata({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | undefined };
-}): Promise<Metadata> {
-  const lang = (await searchParams)?.lang || "";
+  searchParams: Promise<{ lang: string }>;
+}) {
+  const { lang = "" } = await searchParams;
   const data = await getData({ lang });
 
   return {
@@ -22,9 +21,9 @@ export async function generateMetadata({
 export default async function Home({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | undefined };
+  searchParams: Promise<{ lang: string }>;
 }) {
-  const lang = (await searchParams)?.lang || "";
+  const { lang = "" } = await searchParams;
   const data = await getData({ lang });
 
   return (
