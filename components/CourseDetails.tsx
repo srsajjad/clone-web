@@ -1,5 +1,5 @@
 import { CourseData } from "@/interface/type";
-import { VariantChecklist } from "./VatiantChecklist";
+import { VariantChecklist } from "./VariantChecklist";
 
 export const CourseDetails = ({
   data,
