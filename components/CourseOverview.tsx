@@ -3,7 +3,7 @@ import { CourseDetails } from "./CourseDetails";
 import { Slider } from "./Slider";
 import { Offer } from "./Offer";
 import { ProductCheckList } from "./ProductCheckList";
-import { OfferMobile } from "./OfferMobile";
+import { OfferMobileWrapper } from "./OfferMobileWrapper";
 
 export const CourseOverview = ({
   data,
@@ -42,10 +42,14 @@ export const CourseOverview = ({
         </div>
       </div>
 
-      <div className="md:hidden p-4">
-        <OfferMobile lang={lang} />
+      <div className="md:hidden p-4 flex flex-col">
+        <div className="order-2">
+          <ProductCheckList data={data} lang={lang} />
+          <ProductCheckList data={data} lang={lang} />
+          <ProductCheckList data={data} lang={lang} />
+        </div>
 
-        <ProductCheckList data={data} lang={lang} />
+        <OfferMobileWrapper lang={lang} />
       </div>
     </>
   );
