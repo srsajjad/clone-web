@@ -6,6 +6,7 @@ import { ProductCheckList } from "./ProductCheckList";
 import { OfferMobileWrapper } from "./OfferMobileWrapper";
 import { CourseInstructors } from "./CourseInstructors";
 import { ClassRoutine } from "./ClassRoutine";
+import { FAQ } from "./FAQ";
 
 export const CourseOverview = ({
   data,
@@ -75,6 +76,16 @@ export const CourseOverview = ({
                   key={section.name}
                   html={section.values[0].html as string}
                   downloadLink={section.values[0].download_link as string}
+                />
+              );
+            }
+
+            if (section.type === "faq") {
+              return (
+                <FAQ
+                  key={section.name}
+                  questions={section.values}
+                  sectionName={section.name}
                 />
               );
             }
