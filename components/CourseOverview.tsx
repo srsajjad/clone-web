@@ -2,6 +2,7 @@ import { CourseData } from "@/interface/type";
 import { CourseDetails } from "./CourseDetails";
 import { Slider } from "./Slider";
 import { Offer } from "./Offer";
+import { ProductCheckList } from "./ProductCheckList";
 
 export const CourseOverview = ({
   data,
@@ -21,6 +22,8 @@ export const CourseOverview = ({
           <Slider data={data} />
 
           <Offer lang={lang} />
+
+          <ProductCheckList data={data} lang={lang} />
         </div>
       </div>
     </div>
