@@ -1,6 +1,7 @@
 import { CourseData } from "@/interface/type";
 import { CourseDetails } from "./CourseDetails";
 import { Slider } from "./Slider";
+import { Offer } from "./Offer";
 
 export const CourseOverview = ({
   data,
@@ -18,6 +19,8 @@ export const CourseOverview = ({
 
         <div className="order-1 md:order-2 w-full md:w-[640px] shrink-0">
           <Slider data={data} />
+
+          <Offer lang={lang} />
         </div>
       </div>
     </div>
