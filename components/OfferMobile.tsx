@@ -1,9 +1,27 @@
 "use client";
 
 import { useLoadVariantData } from "@/hooks/useLoadVariantData";
+import { useState, useEffect } from "react";
 
-export const OfferMobile = ({ lang }: { lang: string }) => {
+export const OfferMobile = ({
+  lang,
+  insideDrawer,
+}: {
+  lang: string;
+  insideDrawer?: boolean;
+}) => {
   const { variantData, isLoading } = useLoadVariantData(lang);
+  const [DrawerTimer, setDrawerTimer] = useState<React.ComponentType | null>(
+    null
+  );
+
+  useEffect(() => {
+    if (insideDrawer) {
+      import("./DrawerTimer").then((mod) =>
+        setDrawerTimer(() => mod.DrawerTimer)
+      );
+    }
+  }, [insideDrawer]);
 
   if (isLoading) {
     return (
@@ -73,8 +91,12 @@ export const OfferMobile = ({ lang }: { lang: string }) => {
           {lang === "en" ? "Enroll" : "কোর্সটি কিনুন"}
         </button>
 
-        <div className="text-xs text-white bg-[#DA4C5A] p-2 rounded-full absolute top-[-40px] left-0">
-          {endLabel} {formattedDate}
+        <div className="text-xs text-white bg-[#DA4C5A] p-2 rounded-full absolute top-[-40px] left-0 font-semibold">
+          {insideDrawer && DrawerTimer ? (
+            <DrawerTimer endLabel={endLabel} end_at={end_at} />
+          ) : (
+            `${endLabel} ${formattedDate}`
+          )}
         </div>
       </div>
     </>

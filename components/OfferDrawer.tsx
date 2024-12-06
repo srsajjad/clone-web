@@ -17,7 +17,7 @@ export const OfferDrawer = ({
           : "translate-y-full opacity-0 pointer-events-none"
       }`}
     >
-      <OfferMobile lang={lang} />
+      <OfferMobile lang={lang} insideDrawer={true} />
     </div>
   );
 };
