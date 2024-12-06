@@ -7,6 +7,7 @@ import { OfferMobileWrapper } from "./OfferMobileWrapper";
 import { CourseInstructors } from "./CourseInstructors";
 import { ClassRoutine } from "./ClassRoutine";
 import { FAQ } from "./FAQ";
+import { StickyProductCheckList } from "./StickyProductCheckList";
 
 export const CourseOverview = ({
   data,
@@ -35,7 +36,7 @@ export const CourseOverview = ({
 
           <div
             className="hidden md:block order-1 md:order-2 w-full md:w-[640px] shrink-0 bg-white p-1 rounded-md md:max-w-[330px] 
-                  lg:max-w-[400px] md:absolute md:right-[-20] lg:right-0  md:top-8 border"
+                  lg:max-w-[400px] md:absolute md:right-[-20] lg:right-0 xl:right-[60] md:top-8 border"
           >
             <Slider data={data} />
 
@@ -55,7 +56,7 @@ export const CourseOverview = ({
         <OfferMobileWrapper lang={lang} />
       </div>
 
-      <div className="flex w-full gap-4 container mx-auto p-4 md:px-12 pb-[200px] md:pb-8">
+      <div className="flex w-full gap-4 container mx-auto p-4 md:px-12 pb-[200px] md:pb-8 relative">
         <div className="w-full md:w-[60%] flex flex-col">
           {sections.map((section) => {
             if (section.type === "instructors") {
@@ -91,7 +92,9 @@ export const CourseOverview = ({
             return null;
           })}
         </div>
-        <div className="hidden md:block w-[40%]"></div>
+        <div className="hidden md:block w-[40%] pl-10">
+          <StickyProductCheckList data={data} lang={lang} />
+        </div>
       </div>
     </>
   );
