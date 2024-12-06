@@ -8,6 +8,7 @@ import { CourseInstructors } from "./CourseInstructors";
 import { ClassRoutine } from "./ClassRoutine";
 import { FAQ } from "./FAQ";
 import { StickyProductCheckList } from "./StickyProductCheckList";
+import { StickySwitcher } from "./StickySwitcher";
 
 export const CourseOverview = ({
   data,
@@ -44,6 +45,8 @@ export const CourseOverview = ({
               <Offer lang={lang} />
               <ProductCheckList data={data} lang={lang} />
             </div>
+
+            <StickySwitcher />
           </div>
         </div>
       </div>
