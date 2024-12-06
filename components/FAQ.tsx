@@ -27,7 +27,12 @@ export const FAQ = ({
       <h2 className="mb-4 text-xl font-bold md:text-2xl">{sectionName}</h2>
 
       <div className="relative border rounded-lg px-4 pb-1">
-        <Accordion type="single" collapsible className="w-full">
+        <Accordion
+          type="single"
+          collapsible
+          className="w-full"
+          defaultValue="item-0"
+        >
           {visibleQuestions.map((faq, index) => (
             <AccordionItem
               key={faq.slug || index}
@@ -37,7 +42,7 @@ export const FAQ = ({
               <AccordionTrigger className="text-left font-bold hover:no-underline">
                 {faq.question}
               </AccordionTrigger>
-              <AccordionContent className="text-gray-600">
+              <AccordionContent className="text-black">
                 {parse(faq.answer || "")}
               </AccordionContent>
             </AccordionItem>

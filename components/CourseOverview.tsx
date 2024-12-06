@@ -50,8 +50,6 @@ export const CourseOverview = ({
       <div className="md:hidden p-4 flex flex-col">
         <div className="order-2">
           <ProductCheckList data={data} lang={lang} />
-          <ProductCheckList data={data} lang={lang} />
-          <ProductCheckList data={data} lang={lang} />
         </div>
 
         <OfferMobileWrapper lang={lang} />
