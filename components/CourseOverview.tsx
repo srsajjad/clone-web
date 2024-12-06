@@ -4,6 +4,7 @@ import { Slider } from "./Slider";
 import { Offer } from "./Offer";
 import { ProductCheckList } from "./ProductCheckList";
 import { OfferMobileWrapper } from "./OfferMobileWrapper";
+import { CourseInstructors } from "./CourseInstructors";
 
 export const CourseOverview = ({
   data,
@@ -12,6 +13,8 @@ export const CourseOverview = ({
   data: CourseData;
   lang: string;
 }) => {
+  const sections = data.sections;
+
   return (
     <>
       <div
@@ -30,11 +33,11 @@ export const CourseOverview = ({
 
           <div
             className="hidden md:block order-1 md:order-2 w-full md:w-[640px] shrink-0 bg-white p-1 rounded-md md:max-w-[330px] 
-         lg:max-w-[400px] md:absolute md:right-0 md:top-8"
+         lg:max-w-[400px] md:absolute md:right-0 md:top-8 border"
           >
             <Slider data={data} />
 
-            <div className="px-2">
+            <div className="px-3">
               <Offer lang={lang} />
               <ProductCheckList data={data} lang={lang} />
             </div>
@@ -50,6 +53,25 @@ export const CourseOverview = ({
         </div>
 
         <OfferMobileWrapper lang={lang} />
+      </div>
+
+      <div className="flex justify-between">
+        <div className="w-full md:w-[50%] flex flex-col">
+          {sections.map((section) => {
+            if (section.type === "instructors") {
+              return (
+                <CourseInstructors
+                  key={section.name}
+                  instructors={section.values}
+                  sectionName={section.name}
+                />
+              );
+            }
+
+            return null;
+          })}
+        </div>
+        <div className="hidden md:block w-[50%]"></div>
       </div>
     </>
   );

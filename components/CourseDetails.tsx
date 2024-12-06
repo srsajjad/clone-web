@@ -1,5 +1,6 @@
 import { CourseData } from "@/interface/type";
 import { VariantChecklist } from "./VariantChecklist";
+import parse from "html-react-parser";
 
 export const CourseDetails = ({
   data,
@@ -25,10 +26,9 @@ export const CourseDetails = ({
 
       <div className="mb-2"></div>
 
-      <div
-        className="text-gray-400 whitespace-pre-wrap"
-        dangerouslySetInnerHTML={{ __html: description }}
-      />
+      <div className="text-gray-400 whitespace-pre-wrap">
+        {parse(description)}
+      </div>
 
       <VariantChecklist lang={lang} />
     </div>

@@ -120,7 +120,7 @@ export const Slider = ({ data }: { data: CourseData }) => {
         </button>
       </div>
 
-      <div className="px-2 py-2">
+      <div className="px-3 py-2">
         <div className="flex gap-2 mt-2">
           {SLIDES.map((slide, index) => (
             <div
