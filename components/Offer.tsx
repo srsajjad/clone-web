@@ -2,6 +2,7 @@
 
 import { useLoadVariantData } from "@/hooks/useLoadVariantData";
 import { SocialShare } from "./SocialShare";
+import { AvailableSeats } from "./AvailableSeats";
 
 export const Offer = ({ lang }: { lang: string }) => {
   const { variantData, isLoading } = useLoadVariantData(lang);
@@ -26,6 +27,7 @@ export const Offer = ({ lang }: { lang: string }) => {
   const originalPrice = offer.price;
   const discount = offer.discount_amount;
   const label = offer.name;
+  const availableSeats = offer.available_stock;
 
   const end = offer.meta.find((each) => each.key === "timer")?.values[0];
   const { text: endLabel, end_at } = end as { text: string; end_at: string };
@@ -78,6 +80,10 @@ export const Offer = ({ lang }: { lang: string }) => {
 
       <div className="text-[#FF6B6B] text-sm font-semibold mt-2">
         {endLabel} {formattedDate}
+      </div>
+
+      <div className="mt-2">
+        <AvailableSeats seats={availableSeats} lang={lang} />
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
 import { useLoadVariantData } from "@/hooks/useLoadVariantData";
 import { useState, useEffect } from "react";
 import { SocialShare } from "./SocialShare";
+import { AvailableSeats } from "./AvailableSeats";
 
 export const OfferMobile = ({
   lang,
@@ -45,6 +46,7 @@ export const OfferMobile = ({
   const originalPrice = offer.price;
   const discount = offer.discount_amount;
   const label = offer.name;
+  const availableSeats = offer.available_stock;
 
   const end = offer.meta.find((each) => each.key === "timer")?.values[0];
   const { text: endLabel, end_at } = end as { text: string; end_at: string };
@@ -70,7 +72,7 @@ export const OfferMobile = ({
             ৳{originalPrice}
           </div>
 
-          <div className="inline-flex items-center gap-2">
+          <div className="ml-2 inline-flex items-center gap-2">
             <div className="inline-block relative">
               <p
                 className="inline-block h-[25px] bg-[rgb(249,123,83)] rounded-[3px_4px_4px_3px] border-l border-[rgb(249,123,83)] text-white font-semibold text-[14px] py-[3px] px-[7px] relative 
@@ -80,7 +82,10 @@ export const OfferMobile = ({
                 {discount} ৳ ছাড়
               </p>
             </div>
-            {!insideDrawer && <SocialShare />}
+          </div>
+
+          <div className="ml-2">
+            <SocialShare />
           </div>
         </div>
 
@@ -102,6 +107,10 @@ export const OfferMobile = ({
           ) : (
             `${endLabel} ${formattedDate}`
           )}
+        </div>
+
+        <div className="absolute top-[-35px] right-0">
+          <AvailableSeats seats={availableSeats} lang={lang} isMobile />
         </div>
       </div>
     </>
