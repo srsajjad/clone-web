@@ -1,13 +1,13 @@
 import { fetcher } from "@/utils/fetcher";
-import { baseUrl } from "@/utils/baseUrl";
+import { baseUrl, VERSION } from "@/utils/baseUrl";
 import { VariantData } from "@/interface/type";
 import useSWR from "swr/immutable";
 
 export const useLoadVariantData = (lang: string) => {
   const url =
     lang === "en"
-      ? `${baseUrl}/discovery-service/api/v1/products/ielts-live-batch/variants`
-      : `${baseUrl}/discovery-service/api/v1/products/ielts-live-batch/variants?lang=bn`;
+      ? `${baseUrl}/discovery-service/api/${VERSION}/products/ielts-live-batch/variants`
+      : `${baseUrl}/discovery-service/api/${VERSION}/products/ielts-live-batch/variants?lang=bn`;
 
   const { data, error, isLoading } = useSWR(url, fetcher);
 
