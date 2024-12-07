@@ -18,24 +18,10 @@ export const AvailableSeats = ({
       }`}
     >
       <span>{lang === "en" ? "Available seats:" : "আসন বাকি:"}</span>
-      <span className="inline-block animate-[wiggle_1s_ease-in-out_infinite] origin-center">
-        {seats}
-      </span>
+      <span>{seats}</span>
       <style jsx>{`
-        @keyframes wiggle {
-          0%,
-          100% {
-            transform: rotate(0deg);
-          }
-          25% {
-            transform: rotate(-2deg);
-          }
-          75% {
-            transform: rotate(2deg);
-          }
-        }
-        .animate-[wiggle_1s_ease-in-out_infinite] {
-          animation: wiggle 1s ease-in-out infinite;
+        .shake-button {
+          animation: shake 1.5s ease-in-out infinite;
         }
       `}</style>
     </div>
