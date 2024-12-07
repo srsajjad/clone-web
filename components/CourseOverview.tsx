@@ -10,6 +10,7 @@ import { FAQ } from "./FAQ";
 import { StickyProductCheckList } from "./StickyProductCheckList";
 import { StickySwitcher } from "./StickySwitcher";
 import { SectionTab } from "./SectionTab";
+import { DemoClass } from "./DemoClass";
 
 export const CourseOverview = ({
   data,
@@ -67,6 +68,12 @@ export const CourseOverview = ({
           />
 
           {sections.map((section) => {
+            if (section.type === "demo_class_book_engagement") {
+              return (
+                <DemoClass key="demo_class" sectionInfo={section.values[0]} />
+              );
+            }
+
             if (section.type === "instructors") {
               return (
                 <CourseInstructors
