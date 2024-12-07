@@ -17,7 +17,7 @@ export const DemoClass = ({ sectionInfo }: { sectionInfo: Value }) => {
   const { clicked_url, text } = cta || {};
 
   return (
-    <div className="relative w-full px-4 md:px-8 py-8 md:py-12 mb-8 md:mb-12 rounded-xl overflow-hidden">
+    <div className="relative w-full px-4 md:px-8 py-8 md:py-12 mb-8 rounded-xl overflow-hidden">
       {/* Background Image */}
       {image && (
         <div className="absolute inset-0 z-0">

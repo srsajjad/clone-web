@@ -10,7 +10,7 @@ export const ClassRoutine = ({
   sectionName: string;
 }) => {
   return (
-    <div className="class-routine-container my-8" id={sectionName}>
+    <div className="class-routine-container py-4" id={sectionName}>
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl font-bold">{sectionName}</h2>
         <a

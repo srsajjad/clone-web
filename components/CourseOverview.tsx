@@ -12,6 +12,7 @@ import { StickySwitcher } from "./StickySwitcher";
 import { SectionTab } from "./SectionTab";
 import { DemoClass } from "./DemoClass";
 import { Testimonials } from "./Testimonials";
+import { Pointers } from "./Pointers";
 
 export const CourseOverview = ({
   data,
@@ -81,6 +82,16 @@ export const CourseOverview = ({
                   key={section.name}
                   instructors={section.values}
                   sectionName={section.name}
+                />
+              );
+            }
+
+            if (section.type === "pointers") {
+              return (
+                <Pointers
+                  key={section.name}
+                  sectionName={section.name}
+                  pointers={section.values}
                 />
               );
             }

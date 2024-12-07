@@ -54,8 +54,8 @@ export const Testimonials = ({
   };
 
   return (
-    <div className="py-4" id={sectionName}>
-      <h2 className="mb-4 text-xl font-bold md:text-2xl">{sectionName}</h2>
+    <div className="py-4 my-4" id={sectionName}>
+      <h2 className="mb-1 text-xl font-bold md:text-2xl">{sectionName}</h2>
 
       <div className="tenms-carousel relative light right">
         <div className="w-full overflow-hidden">
