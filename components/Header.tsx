@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 
 export const Header = () => {
@@ -22,8 +21,8 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 h-16 bg-white shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center">
+        {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+        <a href="/" className="flex items-center">
           <Image
             src="https://cdn.10minuteschool.com/images/svg/10mslogo-svg.svg"
             alt="10 Minute School"
@@ -31,7 +30,7 @@ export const Header = () => {
             height={27}
             priority
           />
-        </Link>
+        </a>
 
         {/* Language Switcher */}
         <button
