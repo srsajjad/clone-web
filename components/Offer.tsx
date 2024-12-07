@@ -1,6 +1,7 @@
 "use client";
 
 import { useLoadVariantData } from "@/hooks/useLoadVariantData";
+import { SocialShare } from "./SocialShare";
 
 export const Offer = ({ lang }: { lang: string }) => {
   const { variantData, isLoading } = useLoadVariantData(lang);
@@ -40,24 +41,27 @@ export const Offer = ({ lang }: { lang: string }) => {
 
   return (
     <div className="py-4">
-      <div className="flex items-center gap-2 flex-wrap">
-        <div className="inline-block text-2xl font-semibold">
-          ৳{finalPriceAfterDiscount}
-        </div>
+      <div className="flex items-center justify-between mb-4">
+        <div className="flex items-center gap-2 flex-wrap">
+          <div className="inline-block text-2xl font-semibold">
+            ৳{finalPriceAfterDiscount}
+          </div>
 
-        <div className="ml-2 text-base font-normal md:text-xl text-gray-500 line-through">
-          ৳{originalPrice}
-        </div>
+          <div className="ml-2 text-base font-normal md:text-xl text-gray-500 line-through">
+            ৳{originalPrice}
+          </div>
 
-        <div className="inline-block ml-[15px] relative">
-          <p
-            className="inline-block h-[25px] bg-[rgb(249,123,83)] rounded-[3px_4px_4px_3px] border-l border-[rgb(249,123,83)] text-white font-semibold text-[14px] py-[3px] px-[7px] relative 
-            before:content-[''] before:absolute before:block before:left-[-12px] before:top-[1px] before:w-0 before:h-0 before:border-t-[12px] before:border-t-transparent before:border-b-[12px] before:border-b-transparent before:border-r-[12px] before:border-r-[rgb(249,123,83)]
-            after:content-[''] after:bg-white after:rounded-full after:w-1 after:h-1 after:block after:absolute after:left-[-2px] after:top-[13px]"
-          >
-            {discount} ৳ ছাড়
-          </p>
+          <div className="inline-block ml-[15px] relative">
+            <p
+              className="inline-block h-[25px] bg-[rgb(249,123,83)] rounded-[3px_4px_4px_3px] border-l border-[rgb(249,123,83)] text-white font-semibold text-[14px] py-[3px] px-[7px] relative 
+              before:content-[''] before:absolute before:block before:left-[-12px] before:top-[1px] before:w-0 before:h-0 before:border-t-[12px] before:border-t-transparent before:border-b-[12px] before:border-b-transparent before:border-r-[12px] before:border-r-[rgb(249,123,83)]
+              after:content-[''] after:bg-white after:rounded-full after:w-1 after:h-1 after:block after:absolute after:left-[-2px] after:top-[13px]"
+            >
+              {discount} ৳ ছাড়
+            </p>
+          </div>
         </div>
+        <SocialShare />
       </div>
 
       <div className="text-gray-400 mt-1 mb-4 font-semibold">{label}</div>

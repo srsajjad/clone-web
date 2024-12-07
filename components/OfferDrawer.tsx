@@ -1,6 +1,7 @@
 "use client";
 
 import { OfferMobile } from "./OfferMobile";
+import { SocialShare } from "./SocialShare";
 
 export const OfferDrawer = ({
   lang,
@@ -17,6 +18,9 @@ export const OfferDrawer = ({
           : "translate-y-full opacity-0 pointer-events-none"
       }`}
     >
+      <div className="flex justify-end mb-2">
+        <SocialShare />
+      </div>
       <OfferMobile lang={lang} insideDrawer={true} />
     </div>
   );
