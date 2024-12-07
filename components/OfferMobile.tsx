@@ -62,7 +62,7 @@ export const OfferMobile = ({
 
   return (
     <>
-      <div className="pb-2 relative">
+      <div className={`pb-2 relative ${insideDrawer ? "" : "mb-4"}`}>
         <div className="flex items-center gap-2 flex-wrap">
           <div className="inline-block text-2xl font-semibold">
             ৳{finalPriceAfterDiscount}
