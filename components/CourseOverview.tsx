@@ -9,6 +9,7 @@ import { ClassRoutine } from "./ClassRoutine";
 import { FAQ } from "./FAQ";
 import { StickyProductCheckList } from "./StickyProductCheckList";
 import { StickySwitcher } from "./StickySwitcher";
+import { SectionTab } from "./SectionTab";
 
 export const CourseOverview = ({
   data,
@@ -61,6 +62,10 @@ export const CourseOverview = ({
 
       <div className="flex w-full gap-4 container mx-auto p-4 md:px-12 pb-[200px] md:pb-8 relative">
         <div className="w-full md:w-[60%] flex flex-col">
+          <SectionTab
+            sections={sections.filter((sections) => !!sections.name)}
+          />
+
           {sections.map((section) => {
             if (section.type === "instructors") {
               return (
