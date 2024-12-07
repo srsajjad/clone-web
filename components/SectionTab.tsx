@@ -62,9 +62,25 @@ export const SectionTab = ({ sections }: { sections: Section[] }) => {
     }
   };
 
+  const handleTabClick = (index: number, sectionName: string) => {
+    setActiveTab(index);
+    const sectionElement = document.getElementById(sectionName);
+    if (sectionElement) {
+      const headerOffset = 124; // 64px header + 60px tab height
+      const elementPosition = sectionElement.getBoundingClientRect().top;
+      const offsetPosition =
+        elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <div className="sticky top-[64px] z-50 w-full bg-white hidden md:block min-h-[60px] pt-2">
-      <div className="relative flex items-center w-full]">
+      <div className="relative flex items-center w-full">
         <button
           onClick={() => scroll("left")}
           disabled={!canScrollLeft}
@@ -101,7 +117,7 @@ export const SectionTab = ({ sections }: { sections: Section[] }) => {
           {sections.map((section, index) => (
             <button
               key={section.type}
-              onClick={() => setActiveTab(index)}
+              onClick={() => handleTabClick(index, section.name)}
               className={cn(
                 "relative p-2 text-base font-semibold whitespace-nowrap transition-all duration-200",
                 "hover:text-[#1CAB55]",

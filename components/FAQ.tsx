@@ -23,7 +23,7 @@ export const FAQ = ({
   const visibleQuestions = isExpanded ? questions : questions.slice(0, 5);
 
   return (
-    <div className="py-4">
+    <div className="py-4" id={sectionName}>
       <h2 className="mb-4 text-xl font-bold md:text-2xl">{sectionName}</h2>
 
       <div className="relative border rounded-lg px-4 pb-1">

@@ -81,6 +81,7 @@ export const CourseOverview = ({
               return (
                 <ClassRoutine
                   key={section.name}
+                  sectionName={section.name}
                   html={section.values[0].html as string}
                   downloadLink={section.values[0].download_link as string}
                 />

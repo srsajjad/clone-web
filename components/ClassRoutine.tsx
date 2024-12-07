@@ -3,14 +3,16 @@ import parse from "html-react-parser";
 export const ClassRoutine = ({
   html,
   downloadLink,
+  sectionName,
 }: {
   html: string;
   downloadLink: string;
+  sectionName: string;
 }) => {
   return (
-    <div className="class-routine-container my-8">
+    <div className="class-routine-container my-8" id={sectionName}>
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-bold">ক্লাস রুটিন</h2>
+        <h2 className="text-2xl font-bold">{sectionName}</h2>
         <a
           href={downloadLink}
           className="flex items-center text-green-600 hover:text-green-700 gap-2 underline"
