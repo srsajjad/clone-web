@@ -4,7 +4,7 @@ import { useSticky } from "@/hooks/useSticky";
 import { useInView } from "react-intersection-observer";
 import { useEffect } from "react";
 
-export const StickySwitcher = () => {
+export const StickySwitcher = ({ children }: { children: React.ReactNode }) => {
   const { setShowSticky } = useSticky();
 
   const { ref, inView } = useInView({
@@ -15,5 +15,5 @@ export const StickySwitcher = () => {
     setShowSticky(!inView);
   }, [inView, setShowSticky]);
 
-  return <div ref={ref} className="h-[10px] w-full bg-none"></div>;
+  return <div ref={ref}>{children}</div>;
 };

@@ -41,12 +41,12 @@ export const CourseOverview = ({
           >
             <Slider data={data} />
 
-            <div className="px-3">
-              <Offer lang={lang} />
-              <ProductCheckList data={data} lang={lang} />
-            </div>
-
-            <StickySwitcher />
+            <StickySwitcher>
+              <div className="px-3">
+                <Offer lang={lang} />
+                <ProductCheckList data={data} lang={lang} />
+              </div>
+            </StickySwitcher>
           </div>
         </div>
       </div>
