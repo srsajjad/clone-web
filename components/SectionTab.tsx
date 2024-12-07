@@ -70,9 +70,7 @@ export const SectionTab = ({ sections }: { sections: Section[] }) => {
           disabled={!canScrollLeft}
           className={cn(
             "absolute left-0 z-10 transition-opacity duration-200",
-            canScrollLeft
-              ? "opacity-100 cursor-pointer"
-              : "opacity-50 cursor-not-allowed",
+            canScrollLeft ? "opacity-100 cursor-pointer" : "opacity-50",
             "xl:ml-[-40px]"
           )}
           aria-label="Scroll left"
@@ -105,7 +103,7 @@ export const SectionTab = ({ sections }: { sections: Section[] }) => {
               key={section.type}
               onClick={() => setActiveTab(index)}
               className={cn(
-                "relative px-5 py-3 text-base font-semibold whitespace-nowrap transition-all duration-200",
+                "relative p-2 text-base font-semibold whitespace-nowrap transition-all duration-200",
                 "hover:text-[#1CAB55]",
                 activeTab === index
                   ? "text-[#1CAB55] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-[#1CAB55]"
@@ -122,9 +120,7 @@ export const SectionTab = ({ sections }: { sections: Section[] }) => {
           disabled={!canScrollRight}
           className={cn(
             "absolute right-0 z-10 transition-opacity duration-200",
-            canScrollRight
-              ? "opacity-100 cursor-pointer"
-              : "opacity-50 cursor-not-allowed",
+            canScrollRight ? "opacity-100 cursor-pointer" : "opacity-50",
             "xl:mr-[-40px]"
           )}
           aria-label="Scroll right"
