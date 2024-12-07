@@ -63,8 +63,8 @@ export const SectionTab = ({ sections }: { sections: Section[] }) => {
   };
 
   return (
-    <div className="sticky top-0 z-50 w-full bg-white hidden md:block">
-      <div className="relative flex items-center w-full">
+    <div className="sticky top-[64px] z-50 w-full bg-white hidden md:block min-h-[60px] pt-2">
+      <div className="relative flex items-center w-full]">
         <button
           onClick={() => scroll("left")}
           disabled={!canScrollLeft}

@@ -19,7 +19,7 @@ export const Header = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-16 bg-white shadow-sm z-50">
+    <header className="fixed top-0 left-0 right-0 h-16 bg-white shadow-sm z-[60]">
       <div className="max-w-7xl mx-auto px-4 h-full flex items-center justify-between">
         {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
         <a href="/" className="flex items-center">
