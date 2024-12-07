@@ -11,6 +11,7 @@ import { StickyProductCheckList } from "./StickyProductCheckList";
 import { StickySwitcher } from "./StickySwitcher";
 import { SectionTab } from "./SectionTab";
 import { DemoClass } from "./DemoClass";
+import { Testimonials } from "./Testimonials";
 
 export const CourseOverview = ({
   data,
@@ -91,6 +92,16 @@ export const CourseOverview = ({
                   sectionName={section.name}
                   html={section.values[0].html as string}
                   downloadLink={section.values[0].download_link as string}
+                />
+              );
+            }
+
+            if (section.type === "testimonials") {
+              return (
+                <Testimonials
+                  key={section.name}
+                  sectionName={section.name}
+                  testimonials={section.values}
                 />
               );
             }
