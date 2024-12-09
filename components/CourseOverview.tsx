@@ -41,7 +41,7 @@ export const CourseOverview = ({
 
           <div
             className="hidden md:block order-1 md:order-2 w-full md:w-[640px] shrink-0 bg-white p-1 rounded-md md:max-w-[330px] 
-                  lg:max-w-[400px] md:absolute md:right-[-20] lg:right-0 xl:right-[60] md:top-8 border"
+                  lg:max-w-[400px] absolute right-[-20px] lg:right-0 xl:right-[60] md:top-8 border"
           >
             <Slider data={data} />
 
