@@ -16,6 +16,7 @@ export const OfferMobile = ({
   const [DrawerTimer, setDrawerTimer] = useState<React.ComponentType<{
     endLabel: string;
     end_at: string;
+    lang: string;
   }> | null>(null);
 
   useEffect(() => {
@@ -103,9 +104,11 @@ export const OfferMobile = ({
 
         <div className="text-xs text-white bg-[#DA4C5A] p-2 rounded-full absolute top-[-40px] left-0 font-semibold">
           {insideDrawer && DrawerTimer ? (
-            <DrawerTimer endLabel={endLabel} end_at={end_at} />
+            <DrawerTimer endLabel={endLabel} end_at={end_at} lang={lang} />
           ) : (
-            `${endLabel} ${formattedDate}`
+            `${
+              lang === "en" ? "Last Date to Enroll:" : endLabel
+            } ${formattedDate}`
           )}
         </div>
 

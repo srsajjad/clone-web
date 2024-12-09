@@ -10,9 +10,11 @@ interface TimeLeft {
 export const DrawerTimer = ({
   endLabel,
   end_at,
+  lang,
 }: {
   endLabel: string;
   end_at: string;
+  lang: string;
 }) => {
   const [timeLeft, setTimeLeft] = useState<TimeLeft>({
     days: 0,
@@ -48,7 +50,9 @@ export const DrawerTimer = ({
 
   return (
     <div className="font-semibold">
-      {`${endLabel}: ${timeLeft.days}:${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`}
+      {`${lang === "en" ? "Last Date to Enroll:" : endLabel}  ${
+        timeLeft.days
+      }:${timeLeft.hours}:${timeLeft.minutes}:${timeLeft.seconds}`}
     </div>
   );
 };
