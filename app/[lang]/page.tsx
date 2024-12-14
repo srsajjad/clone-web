@@ -1,8 +1,13 @@
-import { getData } from "./data";
 import { CourseOverview } from "@/components/CourseOverview";
+import { getData } from "../data";
 
-export async function generateMetadata() {
-  const lang = "";
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang } = await params;
+
   const data = await getData({ lang });
 
   return {
@@ -14,8 +19,12 @@ export async function generateMetadata() {
   };
 }
 
-export default async function Home() {
-  const lang = "";
+export default async function Home({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}) {
+  const { lang = "" } = await params;
   const data = await getData({ lang });
 
   return (

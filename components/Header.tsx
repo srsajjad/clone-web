@@ -1,20 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useSearchParams } from "next/navigation";
+import { useParams, useRouter } from "next/navigation";
 
 export const Header = () => {
-  const searchParams = useSearchParams();
-  const currentLang = searchParams.get("lang") === "en" ? "en" : "bn";
+  const router = useRouter();
+  const params = useParams();
+
+  const currentLang = params.lang === "en" ? "en" : "bn";
 
   const toggleLanguage = () => {
     const newLang = currentLang === "en" ? "" : "en";
 
-    // Navigate and force a full refresh
     if (newLang) {
-      window.location.href = `/?lang=${newLang}`;
+      router.push(`/${newLang}`);
     } else {
-      window.location.href = "/";
+      router.push("/");
     }
   };
 
